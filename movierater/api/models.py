@@ -17,7 +17,6 @@ class Rating(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
-class Meta:
-    unique_together = (('user', 'movie'),)
-    index_together: Tuple[Tuple[str, str]] = (('user', 'movie'),)
+    class Meta:
+        unique_together = (('user', 'movie'),)
+        index_together: Tuple[Tuple[str, str]] = (('user', 'movie'),)

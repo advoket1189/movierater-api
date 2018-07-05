@@ -11,6 +11,7 @@ from movierater.api.models import Movie, Rating
 from movierater.api.serializers import MovieSerializer
 import movierater.api.serializers
 
+
 class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all().order_by()
     serializer_class = movierater.api.serializers.RatingSerializer
@@ -24,11 +25,13 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, SessionAuthentication,)
     permission_classes = (IsAuthenticated,)
 
+
 class MovieViewSet(viewsets.ModelViewSet):
-        queryset = Movie.objects.all()
-        serializer_class = MovieSerializer
-        authentication_classes = (TokenAuthentication, SessionAuthentication,)
-        permission_classes = (IsAuthenticated,)
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    authentication_classes = (TokenAuthentication, SessionAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
 
 class CustomObtainAuthToken(object):
     pass
